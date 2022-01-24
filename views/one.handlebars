@@ -1,0 +1,45 @@
+<a href='/'> HOME</a><br><br>
+<h1>Themes</h1>
+ Select Theme
+<table>
+  <tr>
+<form action="/fetchLegoSets" method="post">
+  <select id='legothemes' name='legothemes' onchange="getOption()">
+    Select Theme:
+    {{#each this.legosetData}}
+    <option value={{this.theme_id}}>{{this.name}}</option>
+     {{/each}}
+    </select>
+  <input type="submit" value="Select"><br>
+  </form>
+</tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function getOption() {
+    console.log("im in getOption")
+    var selectElement = document.getElementById('legothemes').value
+    //selectElement = document.querySelector('#legothemes');
+    // output = selectElement.options[selectElement.selectedIndex].value;
+    console.log("output" + selectElement);
+
+  }
+</script>

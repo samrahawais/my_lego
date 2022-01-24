@@ -1,0 +1,32 @@
+<h1> Lego Sets </h1>
+<table border=1 align='center'>
+  <tr>
+    <td>  </td>
+    <td>    Name  </td>
+    <td> </td>
+    {{!-- <td>   Number of Likes </td> --}}
+</tr>
+
+<tr>
+  {{#each legoDetails}}
+    <td>
+      <img src='{{this.set_img_url}}' width="50" height="50"/>
+    </td>
+    <td>
+      <form action="/getLegoDetails" method="POST">
+        <input type="hidden" name="setName" value={{this.set_num}}>
+        {{this.name}}
+    </td>
+    <td>
+        <input type="submit" value="Get Details">
+    </td>
+    </form>
+  {{!-- <td>   </td> --}}
+</tr>
+
+  {{/each}}
+</table>
+
+
+
+

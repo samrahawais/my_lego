@@ -1,0 +1,69 @@
+<a href='/'> HOME</a>
+
+<table border=1 align='center'>
+  <tr>
+    <td></td>
+    <td>  Set Number  </td>
+    <td>  Name        </td>
+    <td>  Year        </td>
+    <td> Number of Parts </td>
+  </tr>
+  {{#each this.setDetails}}
+  <tr>
+      <td>
+        <img src='{{this.set_img_url}}' width="60" height="60" />
+      </td>
+      <td>
+        {{this.set_num}}
+          <input type="hidden"  name="setNum" id="setNum" value={{this.set_num}} >
+      </td>
+      <td>
+        {{this.name}}
+      </td>
+      <td>
+        {{this.year}}
+      </td>
+      <td>
+        {{this.num_parts}}
+      </td>
+          <input type="hidden"  name="themeId" id="themeId" value= {{this.theme_id}}>
+      <td>
+        <div id="like">
+          
+          <input type="image" src="/public/like.png" alt="Like" title="Like" width="34" height="33" id="heart"
+            onClick="onClick()">
+            
+          <input type="hidden"  name="likes" id="likes">
+          <div>
+               <span id="output" name="output"></span> 
+          </div>
+      </td>
+    </tr>
+   <tr>
+ <form action="/getLikes" method="post" align=center>
+ <input type="hidden"  name="setNum" id="setNum" value={{this.set_num}} >
+ <input type="hidden"  name="themeId" id="themeId" value= {{this.theme_id}}>
+<input type="hidden"  name="likes" id="likes">
+ <br><br><input type="submit" value="  OK  "><br>
+
+  </form>
+  </tr>
+   {{/each}}
+</table>
+
+
+
+
+<script>
+
+  // Heart Like counts
+  var clicks = 0;
+
+  function onClick() {
+    clicks += 1;
+    
+    document.getElementById("output").innerHTML = clicks;
+    document.getElementById("likes").value = document.getElementById("output").innerHTML;
+  };
+
+</script
